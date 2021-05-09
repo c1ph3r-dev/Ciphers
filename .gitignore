@@ -381,3 +381,6 @@ MigrationBackup/
 *.exe
 *.out
 *.app
+
+bin/
+bin-int/
