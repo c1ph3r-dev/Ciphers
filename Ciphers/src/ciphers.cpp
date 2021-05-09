@@ -109,8 +109,7 @@ namespace ciphers
 
 		if (!output.is_open())
 		{
-			std::cout << "Please open file before calling this function!\n";
-			throw 1;
+			throw std::runtime_error("Please open file before calling this function!");
 		}
 
 		bool c;
@@ -320,8 +319,7 @@ namespace ciphers
 	{
 		if (!output.is_open())
 		{
-			std::cout << "Please open file before calling this function!\n";
-			throw 1;
+			throw std::runtime_error("Please open file before calling this function!");
 		}
 
 		bool c;
@@ -395,6 +393,11 @@ namespace ciphers
 
 	void Atbash(std::vector<char> inputText, std::ofstream& output)
 	{
+		if (!output.is_open())
+		{
+			throw std::runtime_error("Please open file before calling this function!");
+		}
+
 		char reverse[26];
 
 		while (true)
