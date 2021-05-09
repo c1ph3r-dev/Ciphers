@@ -7,7 +7,7 @@ namespace ciphers
 {
 	void Caeser(std::vector<char> inputText, std::vector<char>& output, short shift, e_Choice choice)
 	{
-		bool c;	
+		bool c{};
 		switch (choice)
 		{
 		default:
@@ -23,7 +23,7 @@ namespace ciphers
 		if (shift < 0)
 			shift *= -1;
 
-		unsigned long long size = 0;
+		unsigned long long size{};
 		if (c)
 		{
 			while (shift < 0 || shift > 26)
@@ -58,8 +58,8 @@ namespace ciphers
 
 		for (int x = 0; x < inputText.size(); x++)
 		{
-			int val;
-			bool lCase;
+			int val{};
+			bool lCase{};
 			
 			for (int y = 0; y < 26; y++)
 			{
@@ -112,7 +112,7 @@ namespace ciphers
 			throw std::runtime_error("Please open file before calling this function!");
 		}
 
-		bool c;
+		bool c{};
 		switch (choice)
 		{
 		default:
@@ -128,7 +128,7 @@ namespace ciphers
 		if (shift < 0)
 			shift *= -1;
 
-		unsigned long long size = 0;
+		unsigned long long size{};
 		if (c)
 		{
 			while (shift < 0 || shift > 26)
@@ -163,8 +163,8 @@ namespace ciphers
 
 		for (int x = 0; x < inputText.size(); x++)
 		{
-			int val;
-			bool lCase;
+			int val{};
+			bool lCase{};
 
 			for (int y = 0; y < 26; y++)
 			{
@@ -215,9 +215,9 @@ namespace ciphers
 
 	static char Logic(char letter, unsigned short shift, bool encode)
 	{
-		char res;
-		unsigned short val;
-		bool lCase;
+		char res{};
+		unsigned short val{};
+		bool lCase{};
 
 		if (!encode)
 		{
@@ -276,7 +276,7 @@ namespace ciphers
 
 	void Vigenere(std::vector<char> inputText, std::vector<char>& output, std::vector<char> shift, e_Choice choice)
 	{
-		bool c;
+		bool c{};
 		switch (choice)
 		{
 		default:
@@ -303,7 +303,7 @@ namespace ciphers
 			}
 		}
 
-		unsigned short count = 0;
+		unsigned short count{ 0 };
 		for (int i = 0; i < inputText.size(); i++)
 		{
 			output.push_back(Logic(inputText[i], shiftNum[count], c));
@@ -322,7 +322,7 @@ namespace ciphers
 			throw std::runtime_error("Please open file before calling this function!");
 		}
 
-		bool c;
+		bool c{};
 		switch (choice)
 		{
 		default:
@@ -349,7 +349,7 @@ namespace ciphers
 			}
 		}
 
-		unsigned short count = 0;
+		unsigned short count{ 0 };
 		for (int i = 0; i < inputText.size(); i++)
 		{
 			output << Logic(inputText[i], shiftNum[count], c);
@@ -363,14 +363,17 @@ namespace ciphers
 
 	void Atbash(std::vector<char> inputText, std::vector<char>& output)
 	{
-		char reverse[26];
+		char reverseLC[26];
+		char reverseUC[26];
+		bool lCase{};
 
 		while (true)
 		{
 			unsigned short j = 25;
 			for (int i = 0; i < 26; i++)
 			{
-				reverse[i] = alphabetLC[j];
+				reverseLC[i] = alphabetLC[j];
+				reverseUC[i] = alphabetUC[j];
 				j--;
 			}
 			break;
@@ -378,16 +381,27 @@ namespace ciphers
 
 		for (int x = 0; x < inputText.size(); x++)
 		{
-			int loc;
+			int loc{};
 			for (int y = 0; y < 26; y++)
 			{
 				if (inputText[x] == alphabetLC[y])
 				{
+					lCase = true;
+					loc = y;
+					break;
+				}
+				if (inputText[x] == alphabetUC[y])
+				{
+					lCase = false;
 					loc = y;
 					break;
 				}
 			}
-			output.push_back(reverse[loc]);
+			
+			if(lCase)
+				output.push_back(reverseLC[loc]);
+			else
+				output.push_back(reverseUC[loc]);
 		}
 	}
 
@@ -398,14 +412,17 @@ namespace ciphers
 			throw std::runtime_error("Please open file before calling this function!");
 		}
 
-		char reverse[26];
+		char reverseLC[26];
+		char reverseUC[26];
+		bool lCase{};
 
 		while (true)
 		{
 			unsigned short j = 25;
 			for (int i = 0; i < 26; i++)
 			{
-				reverse[i] = alphabetLC[j];
+				reverseLC[i] = alphabetLC[j];
+				reverseUC[i] = alphabetUC[j];
 				j--;
 			}
 			break;
@@ -413,16 +430,26 @@ namespace ciphers
 
 		for (int x = 0; x < inputText.size(); x++)
 		{
-			int loc;
+			int loc{};
 			for (int y = 0; y < 26; y++)
 			{
 				if (inputText[x] == alphabetLC[y])
 				{
+					lCase = true;
+					loc = y;
+					break;
+				}
+				if (inputText[x] == alphabetUC[y])
+				{
+					lCase = false;
 					loc = y;
 					break;
 				}
 			}
-			output << reverse[loc];
+			if (lCase)
+				output << reverseLC[loc];
+			else
+				output << reverseUC[loc];
 		}
 	}
 }
