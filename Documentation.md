@@ -3,6 +3,13 @@
 
 All functions and the enum class in this library use the `ciphers::` namespace.
 
+## Table of Contents
+- [Section 1 - Enum Class](https://github.com/c1ph3r-dev/CPP-Libs/blob/main/Ciphers/Documentation.md#section-1---enum-class)
+- [Section 2 - Functions](https://github.com/c1ph3r-dev/CPP-Libs/blob/main/Ciphers/Documentation.md#section-2---functions)
+  - [Caeser](https://github.com/c1ph3r-dev/CPP-Libs/blob/main/Ciphers/Documentation.md#caeser)
+  - [Vigenere](https://github.com/c1ph3r-dev/CPP-Libs/blob/main/Ciphers/Documentation.md#vigenere)
+  - [Atbash](https://github.com/c1ph3r-dev/CPP-Libs/blob/main/Ciphers/Documentation.md#atbash)
+
 ## Section 1 - Enum Class
 To use the `Caeser()` and `Vigenere()` functions you will have to use the `ciphers::e_Choice` enum class.
 The enum class contains two components: `e_Chocie::ENCODE` and `e_Chocie::DECODE`.
