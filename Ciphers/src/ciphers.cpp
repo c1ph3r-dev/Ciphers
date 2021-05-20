@@ -103,7 +103,7 @@ namespace ciphers
 		}
 	}
 
-	void Caeser(std::vector<char> inputText, std::ofstream& output, short shift, e_Choice choice)
+	void Caeser(std::vector<char> inputText, std::fstream& output, short shift, e_Choice choice)
 	{
 		std::vector<char> temp;
 
@@ -315,7 +315,7 @@ namespace ciphers
 		}
 	}
 
-	void Vigenere(std::vector<char> inputText, std::ofstream& output, std::vector<char> shift, e_Choice choice)
+	void Vigenere(std::vector<char> inputText, std::fstream& output, std::vector<char> shift, e_Choice choice)
 	{
 		if (!output.is_open())
 		{
@@ -405,7 +405,7 @@ namespace ciphers
 		}
 	}
 
-	void Atbash(std::vector<char> inputText, std::ofstream& output)
+	void Atbash(std::vector<char> inputText, std::fstream& output)
 	{
 		if (!output.is_open())
 		{

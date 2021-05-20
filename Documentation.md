@@ -37,14 +37,14 @@ This tells the function whether you are encoding or decoding the input text and 
 This defaults to `e_Choice::ENCODE` when not specified.
 
 ``` cpp
-void Caeser(std::vector<char> inputText, std::ofstream& output, short shift, e_Choice choice)
+void Caeser(std::vector<char> inputText, std::fstream& output, short shift, e_Choice choice)
 ```
 
 #### inputText
 This is a char vector containing the text that you wish to encode or decode.
 
 #### output
-This is a reference to an ofstream object in which the encoded/decoded message will be written.
+This is a reference to an fstream object in which the encoded/decoded message will be written.
 **IMPORTANT:** The file must be opened outside of the function as the function does **NOT** open the file. If not opened the function will throw a runtime error.
 
 #### shift
@@ -76,14 +76,14 @@ This tells the function whether you are encoding or decoding the input text and 
 This defaults to `e_Choice::ENCODE` when not specified.
 
 ``` cpp
-void Vigenere(std::vector<char> inputText, std::ofstream& output, std::vector<char> shift, e_Choice choice)
+void Vigenere(std::vector<char> inputText, std::fstream& output, std::vector<char> shift, e_Choice choice)
 ```
 
 #### inputText
 This is a char vector containing the text that you wish to encode or decode.
 
 #### output
-This is a reference to an ofstream object in which the encoded/decoded message will be written.
+This is a reference to an fstream object in which the encoded/decoded message will be written.
 **IMPORTANT:** The file must be opened outside of the function as the function does **NOT** open the file. If not opened the function will throw a runtime error.
 
 #### shift
@@ -107,12 +107,12 @@ This is a char vector containing the text that you wish to encode or decode.
 This is a reference to a char vector in which the encoded/decoded message will be stored.
 
 ``` cpp
-void Atbash(std::vector<char> inputText, std::ofstream& output)
+void Atbash(std::vector<char> inputText, std::fstream& output)
 ```
 
 #### inputText
 This is a char vector containing the text that you wish to encode or decode.
 
 #### output
-This is a reference to an ofstream object in which the encoded/decoded message will be written.
+This is a reference to an fstream object in which the encoded/decoded message will be written.
 **IMPORTANT:** The file must be opened outside of the function as the function does **NOT** open the file. If not opened the function will throw a runtime error.
